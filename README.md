@@ -14,4 +14,4 @@ The actual function that makes the game work. First, it checks if the bet is les
 
 # CSS
 
-<p align="left"><img src="screenshots/cssScreenshot.pnp"></p>
+<p align="left"><img src="screenshots/cssScreenshot.png"></p>
