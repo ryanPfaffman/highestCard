@@ -2,3 +2,5 @@
 
 # highestCard
 Game using an HTML, CSS, and JavaScript file
+
+<p align="left><img src="screenshots/deckScreenshot></p>
