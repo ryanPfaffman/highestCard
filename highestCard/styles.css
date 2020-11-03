@@ -1,0 +1,83 @@
+@charset "UTF-8";
+/* CSS Document */
+body {
+	background-image: url(images/background.jpg);
+	color: red;
+}
+#logoSpace {
+	background-color: gold;
+}
+#title {
+	text-align: center;
+	background-color: gold;
+	margin-left = 100%
+	margin-right = 100%
+}
+
+#instructions {
+	text-align: center;
+
+}
+
+li {
+	color: gold;
+	text-align: left;
+}
+
+.cardDivP {
+	color: gold;
+	text-align: center;
+}
+
+#button, #afterSelection {
+	text-align: center;
+	background-color: yellow;
+	margin-left: 25%;
+	margin-right: 25%;
+}
+
+#table2 {
+	margin-left: 25%;
+	margin-right: 25%
+}
+
+.cardDiv {
+	text-align: center;
+}
+
+#buttonText, #afterSelection {
+	background-color: white;
+}
+
+
+
+#playAgainButton {
+	background-color:yellow;
+	margin-left: 25%;
+	margin-right: 25%;
+	text-align: center;
+}
+
+.tables {
+	margin-left: 25%;
+	margin-right: 25%;
+}
+
+.instructions {
+	list-style-type: none;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+#buttonText, #afterSelection {
+	cursor: pointer;
+}
+@media only screen and (max-width: 600px) {
+	body {
+		margin: 0px;
+	}
+}

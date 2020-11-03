@@ -1,0 +1,80 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Choose Highest Card</title>
+<link rel="stylesheet" href="styles.css">
+<script src="script.js" type="text/javascript" async></script>
+</head>
+
+<body>
+
+<table width="36%" border="1" align="center" id="mainTable" class="tables">
+  <tbody>
+    <tr>
+      <td colspan="2" valign="top" id="logoSpace">
+		<h1 id="title" valign="top"><img src="images/logo.png" width="475" height="92" alt="Highest Card Logo"/></h1>
+		</td>
+    </tr>
+	 <tr>
+	  <td colspan="2" valign=top>
+		  <p id="instructions">
+		  <ol align="center">
+			 <li>Choose bet amount</li>
+			 <li>Place bet</li>
+			  <li>Hit reset button</li>
+			  <li>Play Again</li>
+		  </ol>
+		  <ul>
+		  	<li class="instructions">Aces are 20 points. Face Cards are 10 points. The rest of the cards count for themselves. Good Luck!</li>
+		  </ul>
+		</p>
+		 </td>
+	  </tr>
+    <tr>
+      <td class="cardDiv">
+		<p class="cardDivP">User Card</p>
+		  <input id="userCard" class="cards" name="Deck Back" type="image" src="images/deck/Red_back.jpg" width="124" height="200">
+		</td>
+      <td class="cardDiv">
+		<p class="cardDivP">Opponent Card</p>
+		  <input id="cpuCard" class="cards" name="Deck Back" type="image" src="images/deck/Red_back.jpg" width="124" height="200">
+	  </td>
+    </tr>
+	  <tr>
+	  	<td colspan = 2>
+
+    <tr>
+      <td class="cardDivP">Enter Bet Amount ($0-100):</td>
+      <td>
+		  <input id="betAmt" type="number" name="Bet Amount" placeholder="Bet Amount ($0-100)"></input>
+			 </td>
+    </tr>
+    <tr>
+      <td colspan="2">
+		<p id="playAgainButton" hidden>Play Again.</p>
+		</td>
+
+    </tr>
+	    </td>
+	  </tr>
+    <tr>
+      <td colspan = "2">
+		<div id="button" class="buttons">
+			 <p id="buttonText">Place Bet</p>
+			<p id="buttonText2"></p>
+       <p id="afterCard"></p>
+       <p id="afterCard2"></p>
+		  </div>
+			<div>
+			<p id="afterSelection" class="buttons" hidden>Play Again?</p>
+			</div>
+
+		</td>
+	  </tr>
+  </tbody>
+</table>
+
+
+</body>
+</html>
