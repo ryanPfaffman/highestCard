@@ -13,5 +13,5 @@ The actual function that makes the game work. First, it checks if the bet is les
 <p align="left"><img src="screenshots/playGameScreenshot2.png"></p>
 
 # CSS
-
+The CSS is pretty simple. It adds cursor: pointer to the buttonText and the afterSelection divisions, sets margins for the tables class, the the id tables 2, and the button and afterSelection division. It also sets a background image. It also sets colors, etc. Lastly, it hides the spinner widths and sets their -webkit-appearance to none. I.E, it hides the two arrows in the Enter Bet Amount: input. There was a problem where the user could enter characters, and it allowed user to bet more than was currently in the Stash. So, I finally figured out that I could just change the input type to "number". Then, I didn't like the little arrows in the input box, so I set the -webkit-appearance to none.
 <p align="left"><img src="screenshots/cssScreenshot.png"></p>
