@@ -516,33 +516,11 @@ num3 = Math.floor(Math.random() * 52)
 num4 = Math.floor(Math.random() * 52)
 
 if (bet <= 0) {
-  buttonText.innerHTML = "Click to reset game.";
-  buttonText2.innerHTML = "Must enter positive number. Current stash: $" + money;
-  buttonText.onclick = () => {
-  reset();
-  afterSelection.style.display = 'block';
-}; afterSelection.onclick = () => {
-  afterSelection.style.display = 'none';
-  userCardClick(num3);
-  cpuCardClick(num4);
-  playGame(betAmt.value, money);
-
-}
-} else {
-
-  if (bet > money) {
-    buttonText.innerHTML = "Click to reset game.";
-    buttonText2.innerHTML = "Not enough funds for this bet. Reset and re-enter bet amount. Current Stash: $" + money;
-    buttonText.onclick = () => {
-    reset();
-    afterSelection.style.display = 'block';
-  }; afterSelection.onclick = () => {
-    afterSelection.style.display = 'none';
-    userCardClick(num3);
-    cpuCardClick(num4);
-    playGame(betAmt.value, money);
-
-  }
+  alert("Must enter positive number");
+} else if (bet > money) {
+  alert("Not enough funds in Stash");
+} else if (betAmt.value == "") {
+  alert("Must enter a bet");
 } else {
 	if (userPoints > cpuPoints) {
 		newMoney = parseInt(money) + parseInt(bet);
@@ -552,14 +530,20 @@ if (bet <= 0) {
 			reset();
 			afterSelection.style.display = 'block';
 		}; afterSelection.onclick = () => {
-			afterSelection.style.display = 'none';
-			userCardClick(num3);
-			cpuCardClick(num4);
-			playGame(betAmt.value, newMoney);
-
+      if (betAmt.value <= 0) {
+        alert("Must enter positive number");
+      } else if (betAmt.value > money) {
+        alert("Not enough funds in Stash");
+      } else if (betAmt.value == "") {
+        alert("Must enter a bet");
+      } else {
+        afterSelection.style.display = 'none';
+			  userCardClick(num3);
+			  cpuCardClick(num4);
+			  playGame(betAmt.value, newMoney);
 		}
-
-	} else if (cpuPoints > userPoints) {
+	}
+} else if (cpuPoints > userPoints) {
 		newMoney = parseInt(money) - parseInt(bet);
 		if (newMoney === 0) {
 			buttonText.innerHTML = 'Click to reload'
@@ -569,18 +553,26 @@ if (bet <= 0) {
 			}
 		} else {
       buttonText.innerHTML = "Click to reset game."
-		buttonText2.innerHTML = "You lost $" + bet + '.' + ' Current Stash: $' + newMoney;
-		buttonText.onclick = () => {
+		  buttonText2.innerHTML = "You lost $" + bet + '.' + ' Current Stash: $' + newMoney;
+		  buttonText.onclick = () => {
 			reset();
 			afterSelection.style.display = 'block';
 		}; afterSelection.onclick = () => {
-			afterSelection.style.display = 'none';
-			userCardClick(num3);
-			cpuCardClick(num4);
-			playGame(betAmt.value, newMoney);
-
-		}
-	}} else {
+      if (betAmt.value <= 0) {
+        alert("Must enter positive number");
+      } else if (betAmt.value > money) {
+        alert("Not enough funds in Stash");
+      } else if (betAmt.value == "") {
+        alert("Must enter a bet");
+      } else {
+        afterSelection.style.display = 'none';
+			  userCardClick(num3);
+			  cpuCardClick(num4);
+			  playGame(betAmt.value, newMoney);
+      }
+    }
+  }
+} else {
 		buttonText.innerHTML = "Click to reset game.";
 		buttonText2.innerHTML = "You tied with opponent. Current Stash: $" + money;
 		buttonText.onclick = () => {
@@ -591,17 +583,23 @@ if (bet <= 0) {
 			userCardClick(num3);
 			cpuCardClick(num4);
 			playGame(betAmt.value, money);
-		}
-	}
-
-}
-}
+   }
+  }
+ }
 }
 
 let betAmt = document.getElementById('betAmt');
 
 buttonText.onclick = () => {
-	userCardClick(numA);
+  if (betAmt.value > money) {
+    alert("Not enough funds in stash");
+  } else if (betAmt.value < 0) {
+    alert("Must enter positive number");
+  } else if (betAmt.value == "") {
+    alert("Must enter a bet");
+  } else {
+  userCardClick(numA);
 	cpuCardClick(num2);
 	playGame(betAmt.value, money);
+}
 }
