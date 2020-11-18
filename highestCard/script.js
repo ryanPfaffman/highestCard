@@ -544,20 +544,20 @@ if (userPoints > cpuPoints) {
 		}
 	}
 } else if (cpuPoints > userPoints) {
-		newMoney = parseInt(money) - parseInt(bet);
-		if (newMoney === 0) {
-			buttonText.innerHTML = 'Click to reload'
-			buttonText2.innerHTML = "You lost $" + bet + '.' + ' Current Stash: $' + newMoney + " You have no more money. Click to reload $100.";
-			buttonText.onclick = () => {
-        location.reload();
+	newMoney = parseInt(money) - parseInt(bet);
+	if (newMoney === 0) {
+		buttonText.innerHTML = 'Click to reload'
+		buttonText2.innerHTML = "You lost $" + bet + '.' + ' Current Stash: $' + newMoney + " You have no more money. Click to reload $100.";
+		buttonText.onclick = () => {
+        		location.reload();
 			}
 		} else {
-      buttonText.innerHTML = "Click to reset game."
+      	          buttonText.innerHTML = "Click to reset game."
 		  buttonText2.innerHTML = "You lost $" + bet + '.' + ' Current Stash: $' + newMoney;
 		  buttonText.onclick = () => {
-			reset();
-			afterSelection.style.display = 'block';
-      betAmt.addEventListener('keydown', afterSelectionClick);
+	          reset();
+	          afterSelection.style.display = 'block';
+      		  betAmt.addEventListener('keydown', afterSelectionClick);
 		};
       afterSelection.onclick = () => {
       if (betAmt.value <= 0) {
@@ -568,20 +568,20 @@ if (userPoints > cpuPoints) {
         alert("Must enter a bet");
       } else {
         afterSelection.style.display = 'none';
-			  userCardClick(num3);
-			  cpuCardClick(num4);
-			  playGame(betAmt.value, newMoney);
+	userCardClick(num3);
+	cpuCardClick(num4);
+	playGame(betAmt.value, newMoney);
       }
     }
   }
 } else {
-		buttonText.innerHTML = "Click to reset game.";
-		buttonText2.innerHTML = "You tied with opponent. Current Stash: $" + money;
-		buttonText.onclick = () => {
-			reset();
-			afterSelection.style.display = 'block';
-      betAmt.addEventListener('keydown', afterSelectionClick);
-		};
+	buttonText.innerHTML = "Click to reset game.";
+	buttonText2.innerHTML = "You tied with opponent. Current Stash: $" + money;
+	buttonText.onclick = () => {
+	reset();
+	afterSelection.style.display = 'block';
+      	betAmt.addEventListener('keydown', afterSelectionClick);
+    };
       afterSelection.onclick = () => {
       if (betAmt.value <= 0) {
         alert("Must enter positive number");
@@ -591,9 +591,9 @@ if (userPoints > cpuPoints) {
         alert("Must enter a bet");
       } else {
         afterSelection.style.display = 'none';
-			  userCardClick(num3);
-			  cpuCardClick(num4);
-			  playGame(betAmt.value, newMoney);
+	userCardClick(num3);
+	cpuCardClick(num4);
+	playGame(betAmt.value, newMoney);
       }
     }
  }
