@@ -508,7 +508,7 @@ const cpuCardClick = (num) => {
 }
 
 const reset = () => {
-	userCard.src = back;
+	userCard.src = back;\
 	cpuCard.src = back;
 }
 
@@ -521,26 +521,26 @@ betAmt.removeEventListener('keydown', buttonTextClick);
 betAmt.removeEventListener('keydown', afterSelectionClick);
 
 if (userPoints > cpuPoints) {
-		newMoney = parseInt(money) + parseInt(bet);
-		buttonText.innerHTML = "Click to reset game.";
-		buttonText2.innerHTML = "You won $" + bet + '.' + " Current Stash: $" + newMoney;
-		buttonText.onclick = () => {
-			reset();
-			afterSelection.style.display = 'block';
-      betAmt.addEventListener('keydown', afterSelectionClick);
-		};
-      afterSelection.onclick = () => {
-      if (betAmt.value <= 0) {
-        alert("Must enter positive number");
+	newMoney = parseInt(money) + parseInt(bet);
+	buttonText.innerHTML = "Click to reset game.";
+	buttonText2.innerHTML = "You won $" + bet + '.' + " Current Stash: $" + newMoney;
+	buttonText.onclick = () => {
+		reset();
+		afterSelection.style.display = 'block';
+      		betAmt.addEventListener('keydown', afterSelectionClick);
+	};
+        afterSelection.onclick = () => {
+        if (betAmt.value <= 0) {
+        	alert("Must enter positive number");
       } else if (betAmt.value > money) {
-        alert("Not enough funds in Stash");
+        	alert("Not enough funds in Stash");
       } else if (betAmt.value == "") {
-        alert("Must enter a bet");
+        	alert("Must enter a bet");
       } else {
-        afterSelection.style.display = 'none';
-			  userCardClick(num3);
-			  cpuCardClick(num4);
-			  playGame(betAmt.value, newMoney);
+        	afterSelection.style.display = 'none';
+		userCardClick(num3);
+		cpuCardClick(num4);
+		playGame(betAmt.value, newMoney);
 		}
 	}
 } else if (cpuPoints > userPoints) {
