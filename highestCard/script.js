@@ -80,6 +80,8 @@ let currentPoints;
 let buttonText = document.getElementById('buttonText');
 let afterSelection = document.getElementById('afterSelection');
 
+let betAmt = document.getElementById('betAmt');
+
 numA = Math.floor(Math.random() * 52);
 num2 = Math.floor(Math.random() * 52);
 
@@ -515,21 +517,19 @@ const playGame = (bet, money) => {
 num3 = Math.floor(Math.random() * 52)
 num4 = Math.floor(Math.random() * 52)
 
-if (bet <= 0) {
-  alert("Must enter positive number");
-} else if (bet > money) {
-  alert("Not enough funds in Stash");
-} else if (betAmt.value == "") {
-  alert("Must enter a bet");
-} else {
-	if (userPoints > cpuPoints) {
+betAmt.removeEventListener('keydown', buttonTextClick);
+betAmt.removeEventListener('keydown', afterSelectionClick);
+
+if (userPoints > cpuPoints) {
 		newMoney = parseInt(money) + parseInt(bet);
 		buttonText.innerHTML = "Click to reset game.";
 		buttonText2.innerHTML = "You won $" + bet + '.' + " Current Stash: $" + newMoney;
 		buttonText.onclick = () => {
 			reset();
 			afterSelection.style.display = 'block';
-		}; afterSelection.onclick = () => {
+      betAmt.addEventListener('keydown', afterSelectionClick);
+		};
+      afterSelection.onclick = () => {
       if (betAmt.value <= 0) {
         alert("Must enter positive number");
       } else if (betAmt.value > money) {
@@ -557,7 +557,9 @@ if (bet <= 0) {
 		  buttonText.onclick = () => {
 			reset();
 			afterSelection.style.display = 'block';
-		}; afterSelection.onclick = () => {
+      betAmt.addEventListener('keydown', afterSelectionClick);
+		};
+      afterSelection.onclick = () => {
       if (betAmt.value <= 0) {
         alert("Must enter positive number");
       } else if (betAmt.value > money) {
@@ -578,22 +580,29 @@ if (bet <= 0) {
 		buttonText.onclick = () => {
 			reset();
 			afterSelection.style.display = 'block';
-		}; afterSelection.onclick = () => {
-			afterSelection.style.display = 'none';
-			userCardClick(num3);
-			cpuCardClick(num4);
-			playGame(betAmt.value, money);
-   }
-  }
+      betAmt.addEventListener('keydown', afterSelectionClick);
+		};
+      afterSelection.onclick = () => {
+      if (betAmt.value <= 0) {
+        alert("Must enter positive number");
+      } else if (betAmt.value > money) {
+        alert("Not enough funds in Stash");
+      } else if (betAmt.value == "") {
+        alert("Must enter a bet");
+      } else {
+        afterSelection.style.display = 'none';
+			  userCardClick(num3);
+			  cpuCardClick(num4);
+			  playGame(betAmt.value, newMoney);
+      }
+    }
  }
 }
-
-let betAmt = document.getElementById('betAmt');
 
 buttonText.onclick = () => {
   if (betAmt.value > money) {
     alert("Not enough funds in stash");
-  } else if (betAmt.value < 0) {
+  } else if (betAmt.value <= 0) {
     alert("Must enter positive number");
   } else if (betAmt.value == "") {
     alert("Must enter a bet");
@@ -603,3 +612,17 @@ buttonText.onclick = () => {
 	playGame(betAmt.value, money);
 }
 }
+
+const buttonTextClick = (event) => {
+  if (event.keyCode === 13) {
+    buttonText.click();
+  }
+}
+
+const afterSelectionClick = (event) => {
+  if (event.keyCode === 13) {
+    afterSelection.click();
+  }
+}
+
+betAmt.addEventListener('keydown', buttonTextClick);
